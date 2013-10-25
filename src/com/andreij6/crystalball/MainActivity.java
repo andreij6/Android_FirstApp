@@ -7,6 +7,7 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
@@ -15,6 +16,9 @@ import android.widget.TextView;
 import com.andreij6.crystalball.ShakeDetector.OnShakeListener;
 
 public class MainActivity extends Activity {
+	
+	public static final String TAG = MainActivity.class.getSimpleName();
+	
 	//mCrystal... member variable
 	private CrystalBall mCrystalBall = new CrystalBall();
 	private TextView mAnswerLabel;
@@ -39,9 +43,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onShake() {
 				handleNewAnswer();
-				
 			}
 		});
+		
+		// An easy way to check variables values etc.
+		//Toast.makeText(this, "Yay! Our Activity was created", Toast.LENGTH_LONG).show();
+		
+		Log.d(TAG, "We're logging fromt eh onCreate() Method");
 		
 	}
 	
